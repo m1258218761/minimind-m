@@ -1,4 +1,10 @@
 /model/__pycache__
-/dataset
+#/dataset
 /wandb
 /out
+
+*/.ipynb_checkpoints
+
+*.jsonl
+*.csv
+
