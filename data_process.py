@@ -17,8 +17,8 @@ eos_token = "</s>"
 def pretrain_process(chunk_size=50000):
     chunk_idx = 0
 
-    with jsonlines.open('./dataset/mobvoi_seq_monkey_general_open_corpus.jsonl') as reader:
-        with open('./dataset/pretrain_data.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    with jsonlines.open('./dataset/pretrain/mobvoi_seq_monkey_general_open_corpus.jsonl') as reader:
+        with open('./dataset/pretrain/pretrain_data.csv', 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['text'])
 
@@ -139,7 +139,7 @@ def rl_process():
 
 
 if __name__ == "__main__":
-    tokenizer = AutoTokenizer.from_pretrained('./model/minimind_tokenizer', use_fast=False)
+    tokenizer = AutoTokenizer.from_pretrained('./dataset/tokenizer/my_tokenizer', use_fast=False)
     print('tokenizer词表大小：', len(tokenizer))
 
     ################
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     # 2: sft
     # 3: RL
     ################
-    process_type = 2
+    process_type = 1
 
     if process_type == 1:
         pretrain_process()

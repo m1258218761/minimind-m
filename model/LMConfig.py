@@ -7,11 +7,11 @@ class LMConfig(PretrainedConfig):
 
     def __init__(
             self,
-            dim: int = 512,
-            n_layers: int = 8,
+            dim: int = 768,
+            n_layers: int = 16,
             n_heads: int = 16,
             n_kv_heads: int = 8,
-            vocab_size: int = 6400,
+            vocab_size: int = 8000,
             hidden_dim: int = None,
             multiple_of: int = 64,
             norm_eps: float = 1e-5,
