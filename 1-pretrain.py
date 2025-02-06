@@ -106,7 +106,7 @@ def init_model():
     def count_parameters(model):
         return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
-    tokenizer = AutoTokenizer.from_pretrained('./model/minimind_tokenizer')
+    tokenizer = AutoTokenizer.from_pretrained('./dataset/tokenizer/my_tokenizer')
 
     model = Transformer(lm_config).to(args.device)
     # moe_path = '_moe' if lm_config.use_moe else ''
