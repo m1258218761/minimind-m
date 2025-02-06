@@ -101,7 +101,7 @@ def train_epoch(epoch, wandb):
 
 
 def init_model():
-    tokenizer = AutoTokenizer.from_pretrained('./model/minimind_tokenizer')
+    tokenizer = AutoTokenizer.from_pretrained('./dataset/tokenizer/my_tokenizer')
     model_from = 1  # 1从权重，2用transformers
 
     def count_parameters(model):
