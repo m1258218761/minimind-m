@@ -22,6 +22,7 @@ def init_model(lm_config):
     if model_from == 1:
         moe_path = '_moe' if lm_config.use_moe else ''
         ckp = f'./out/full_sft_{lm_config.dim}{moe_path}.pth'
+        # ckp = f'./out/pretrain_{lm_config.dim}{moe_path}.pth'
 
         model = Transformer(lm_config)
         state_dict = torch.load(ckp, map_location=device)
@@ -137,7 +138,7 @@ if __name__ == "__main__":
             tokenize=False,
             add_generation_prompt=True
         )[-(max_seq_len - 1):]
-
+        print(new_prompt)
         x = tokenizer(new_prompt).data['input_ids']
         x = (torch.tensor(x, dtype=torch.long, device=device)[None, ...])
 

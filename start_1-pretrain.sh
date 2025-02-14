@@ -1,1 +1,1 @@
-CUDA_VISIBLE_DEVICES=1,7 deepspeed --master_port 29500 --num_gpus 2  1-pretrain.py --epochs 5 --learning_rate 1e-4 --accumulation_steps 1 --warmup_iters 1000
+CUDA_VISIBLE_DEVICES=1,7 deepspeed --master_port 29500 --num_gpus 2 1-pretrain.py --epochs 5 --learning_rate 1e-4 --accumulation_steps 1 --warmup_iters 1000 > run.log 2>&1 &

@@ -103,7 +103,7 @@ def find_linear_with_keys(model, keys=["wq", "wk"]):
 
 def init_model():
     model_name_or_path = "./minimind-v1-small"
-    tokenizer_name_or_path = "./dataset/tokenizer/my_tokenizer"
+    tokenizer_name_or_path = "./minimind-v1-small"
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name_or_path, trust_remote_code=True, use_fast=False)
     model = AutoModelForCausalLM.from_pretrained(model_name_or_path, trust_remote_code=True).to(args.device)
 

@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
     model, tokenizer = init_model()
 
-    df = pd.read_csv('./dataset/sft_data_single.csv')
+    df = pd.read_csv('./dataset/sft/sft_data_single.csv')
     df = df.sample(frac=1.0)
     train_ds = SFTDataset(df, tokenizer, max_length=max_seq_len)
     train_sampler = DistributedSampler(train_ds) if ddp else None

@@ -78,18 +78,18 @@ def sft_process(contain_history=False):
         # # 1、默认
         # df.to_csv(f'./dataset/{file_name}', mode='a', header=False, index=False, lineterminator='\r\n', encoding='utf-8')
         # 2、若遇到数据 `_csv.Error: need to escape, but no escapechar set` 问题，可加 escapechar='\\' 参数：
-        df.to_csv(f'./dataset/{file_name}', mode='a', header=False, index=False, lineterminator='\r\n', escapechar='\\',
+        df.to_csv(f'./dataset/sft/{file_name}', mode='a', header=False, index=False, lineterminator='\r\n', escapechar='\\',
                   encoding='utf-8')
 
     chunk_size = 1000  # 每次处理的记录数
     data = []
 
-    with open(f'./dataset/{file_name}', 'w', encoding='utf-8') as f:
+    with open(f'./dataset/sft/{file_name}', 'w', encoding='utf-8') as f:
         f.write('history,q,a\n')
 
-    sft_datasets = ['./dataset/sft_data_zh.jsonl']
+    sft_datasets = ['./dataset/sft/sft_data_zh.jsonl']
     if not contain_history:
-        sft_datasets = ['./dataset/sft_data_zh.jsonl']
+        sft_datasets = ['./dataset/sft/sft_data_zh.jsonl']
 
     chunk_num = 0
     for path in sft_datasets:
@@ -147,11 +147,11 @@ if __name__ == "__main__":
     # 2: sft
     # 3: RL
     ################
-    process_type = 1
+    process_type = 2
 
     if process_type == 1:
         pretrain_process()
     if process_type == 2:
-        sft_process(contain_history=False)
+        sft_process(contain_history=True)
     if process_type == 3:
         rl_process()
